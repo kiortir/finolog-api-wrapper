@@ -6,9 +6,9 @@ enable_incomplete_feature = "Unpack"
 name = "finolog-api-wrapper"
 version = "0.1.0"
 description = ""
-authors = ["kiortir <mpgg2000@gmail.com>"]
+authors = ["kiortir <kiortir@yandex.ru>"]
 readme = "README.md"
-packages = [{ include = "lib/finolog-api-wrapper" }]
+# packages = [{ include = "finolog-api-wrapper" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
