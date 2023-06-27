@@ -8,12 +8,7 @@ version = "0.1.0"
 description = ""
 authors = ["kiortir <mpgg2000@gmail.com>"]
 readme = "README.md"
-packages = [
-    { include = "models", from = "src" },
-    { include = "repository", from = "src" },
-    { include = "services", from = "src" },
-
-]
+packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
