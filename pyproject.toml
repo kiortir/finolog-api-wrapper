@@ -1,0 +1,23 @@
+[tool.mypy]
+enable_incomplete_feature = "Unpack"
+
+
+[tool.poetry]
+name = "finolog-api-wrapper"
+version = "0.1.0"
+description = ""
+authors = ["kiortir <mpgg2000@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = ">=2.0b3"
+aiohttp = "^3.8.4"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
