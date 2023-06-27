@@ -11,7 +11,7 @@ readme = "README.md"
 packages = [
     { include = "models", from = "src" },
     { include = "repository", from = "src" },
-    { include = "service", from = "src" },
+    { include = "services", from = "src" },
 
 ]
 
