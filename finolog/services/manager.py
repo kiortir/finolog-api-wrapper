@@ -1,9 +1,9 @@
 import aiohttp
 
-from ..models.account import AccountManager
-from ..models.company import CompanyManager
-from ..models.order import OrderManager
-from ..models.transaction import TransactionManager
+from models.account import AccountManager
+from models.company import CompanyManager
+from models.order import OrderManager
+from models.transaction import TransactionManager
 from repository.repository import ApiManager
 from services.utils import serialise_pydantic
 
