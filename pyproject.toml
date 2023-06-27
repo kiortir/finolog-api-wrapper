@@ -8,7 +8,7 @@ version = "0.1.0"
 description = ""
 authors = ["kiortir <mpgg2000@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "finolog-api-wrapper" }]
+packages = [{ include = "lib/finolog-api-wrapper" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
