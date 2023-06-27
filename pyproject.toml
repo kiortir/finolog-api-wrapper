@@ -8,12 +8,12 @@ version = "0.1.0"
 description = ""
 authors = ["kiortir <kiortir@yandex.ru>"]
 readme = "README.md"
-# packages = [
-#     { include = "finolog" },
-#     { include = "finolog/models" },
-#     { include = "finolog/services" },
-#     { include = "finolog/repository" },
-# ]
+packages = [
+    { include = "finolog" },
+    { include = "finolog/models" },
+    { include = "finolog/services" },
+    { include = "finolog/repository" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
