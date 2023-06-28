@@ -1,4 +1,4 @@
-from repository.repository import ApiManager
+from finolog.repository.repository import ApiManager
 
 
 __all__ = ("ApiManager",)
