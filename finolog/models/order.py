@@ -3,12 +3,12 @@ from typing import Any, NotRequired, TypedDict, Unpack
 
 from pydantic import BaseModel
 
-from models.abc import BaseManager, Record
-from models.transaction import TransactionStatus, TransactionType
-from models.utils import Datetime, Decimal
-from models.arguments import Arguments
+from finolog.models.abc import BaseManager, Record
+from finolog.models.transaction import TransactionStatus, TransactionType
+from finolog.models.utils import Datetime, Decimal
+from finolog.models.arguments import Arguments
 
-from models.utils import (
+from finolog.models.utils import (
     CustomBoolean,
     Datetime,
     Decimal,

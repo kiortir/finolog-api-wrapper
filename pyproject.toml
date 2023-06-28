@@ -10,9 +10,6 @@ authors = ["kiortir <kiortir@yandex.ru>"]
 readme = "README.md"
 packages = [
     { include = "finolog" },
-    { include = "finolog/models" },
-    { include = "finolog/services" },
-    { include = "finolog/repository" },
 ]
 
 [tool.poetry.dependencies]

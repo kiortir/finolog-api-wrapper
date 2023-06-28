@@ -2,9 +2,9 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from models.abc import BaseManager, Record
-from models.utils import Datetime, Decimal
-from models.company import Summary
+from finolog.models.abc import BaseManager, Record
+from finolog.models.utils import Datetime, Decimal
+from finolog.models.company import Summary
 
 
 class AccountManager(BaseManager["Account"]):
@@ -12,7 +12,7 @@ class AccountManager(BaseManager["Account"]):
         account = await self.api_manager.request("GET", f"/account/{id}")
         return Account(_manager=self, **account)
 
-    async def get_list(self) -> list["Account"]:
+    async def get_list(self, **args) -> list["Account"]:
         accounts: list[dict[str, Any]] = await self.api_manager.request(
             "GET",
             "/account",

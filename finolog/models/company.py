@@ -3,9 +3,9 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from models.abc import BaseManager, Record
-from models.transaction import TransactionStatus
-from models.utils import Datetime, Decimal
+from finolog.models.abc import BaseManager, Record
+from finolog.models.transaction import TransactionStatus
+from finolog.models.utils import Datetime, Decimal
 
 
 class CompanyManager(BaseManager["Company"]):
@@ -13,7 +13,7 @@ class CompanyManager(BaseManager["Company"]):
         company = await self.api_manager.request("GET", f"/company/{id}")
         return Company(_manager=self, **company)
 
-    async def get_list(self) -> list["Company"]:
+    async def get_list(self, **args) -> list["Company"]:
         companies: list[dict[str, Any]] = await self.api_manager.request(
             "GET",
             "/company",

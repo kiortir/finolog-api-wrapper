@@ -13,9 +13,9 @@ from typing import (
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
 
-from models.abc import BaseManager, Record
-from models.arguments import Arguments
-from models.utils import (
+from finolog.models.abc import BaseManager, Record
+from finolog.models.arguments import Arguments
+from finolog.models.utils import (
     CustomBoolean,
     Datetime,
     Decimal,

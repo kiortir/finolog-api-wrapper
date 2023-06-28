@@ -2,7 +2,7 @@ from typing import Generic, Self, TypeVar
 
 from pydantic import BaseModel
 
-from repository import ApiManager
+from finolog.repository import ApiManager
 
 T = TypeVar("T")
 

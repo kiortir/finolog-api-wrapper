@@ -1,11 +1,11 @@
 import aiohttp
 
-from models.account import AccountManager
-from models.company import CompanyManager
-from models.order import OrderManager
-from models.transaction import TransactionManager
-from repository.repository import ApiManager
-from services.utils import serialise_pydantic
+from finolog.models.account import AccountManager
+from finolog.models.company import CompanyManager
+from finolog.models.order import OrderManager
+from finolog.models.transaction import TransactionManager
+from finolog.repository.repository import ApiManager
+from finolog.services.utils import serialise_pydantic
 
 
 class Manager:
