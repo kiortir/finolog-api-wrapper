@@ -312,8 +312,8 @@ class Transaction(Record[TransactionManager], BaseModel):
     is_debt: bool | None = None
     has_comments: bool
     payment_number: int | None = None
-    vat: int | None = None
-    base_vat: int | None = None
+    vat: Decimal |int | float | None = None
+    base_vat: Decimal |int | float | None = None
     autoeditor_id: int | None = None
     original_schedule_id: int | None = None
     original_schedule: None = None
