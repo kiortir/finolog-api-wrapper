@@ -21,4 +21,4 @@ class ApiManager:
         response = await self.session.request(
             method, self.get_url(path), json=json
         )
-        return await response.json()
+        return response.json()
