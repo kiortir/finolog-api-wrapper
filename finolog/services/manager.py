@@ -1,15 +1,15 @@
-import aiohttp
+import httpx
 
 from finolog.models.account import AccountManager
 from finolog.models.company import CompanyManager
 from finolog.models.order import OrderManager
 from finolog.models.transaction import TransactionManager
 from finolog.repository.repository import ApiManager
-from finolog.services.utils import serialise_pydantic
+# from finolog.services.utils import serialise_pydantic
 
 
 class Manager:
-    session: aiohttp.ClientSession | None = None
+    session: httpx.AsyncClient | None = None
 
     def __init__(self, biz_id: int, api_token: str | None = None):
         if not self.session and api_token is None:
@@ -25,11 +25,11 @@ class Manager:
 
     @classmethod
     def init_session(cls, api_token: str):
-        session = aiohttp.ClientSession(
+        session = httpx.AsyncClient(
             base_url="https://api.finolog.ru/",
             headers={"Api-Token": api_token},
-            raise_for_status=True,
-            json_serialize=serialise_pydantic,
+            # raise_for_status=True,
+            # json_serialize=serialise_pydantic,
         )
         cls.session = session
         return session
@@ -37,4 +37,4 @@ class Manager:
     @classmethod
     async def close(cls):
         if cls.session:
-            await cls.session.close()
+            await cls.session.aclose()
