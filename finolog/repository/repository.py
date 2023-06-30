@@ -1,6 +1,8 @@
 from typing import Literal
 
+import ujson
 from httpx import AsyncClient
+from httpx import HTTPStatusError
 from pydantic import BaseModel
 
 METHOD = Literal["GET", "POST", "PUT", "DELETE"]
@@ -17,8 +19,11 @@ class ApiManager:
     async def request(
         self, method: METHOD, path: str, args: BaseModel | None = None
     ):
-        json = args and args.model_dump_json()
-        response = await self.session.request(
-            method, self.get_url(path), json=json
+        json_args = (
+            ujson.loads(args.model_dump_json()) if args is not None else None
         )
+        response = await self.session.request(
+            method, self.get_url(path), data=json_args
+        )
+        response.raise_for_status()
         return response.json()
