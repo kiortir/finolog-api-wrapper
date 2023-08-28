@@ -4,7 +4,10 @@ from finolog.models.account import AccountManager
 from finolog.models.company import CompanyManager
 from finolog.models.order import OrderManager
 from finolog.models.transaction import TransactionManager
+from finolog.models.contractor import ContractorManager
+
 from finolog.repository.repository import ApiManager
+
 # from finolog.services.utils import serialise_pydantic
 
 
@@ -22,6 +25,7 @@ class Manager:
         self.companies = CompanyManager(api_manager=self.manager)
         self.accounts = AccountManager(api_manager=self.manager)
         self.orders = OrderManager(api_manager=self.manager)
+        self.contractors = ContractorManager(api_manager=self.manager)
 
     @classmethod
     def init_session(cls, api_token: str):
