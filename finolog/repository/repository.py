@@ -23,7 +23,7 @@ class ApiManager:
             ujson.loads(args.model_dump_json()) if args is not None else None
         )
         response = await self.session.request(
-            method, self.get_url(path), data=json_args
+            method, self.get_url(path), data=json_args, params=json_args
         )
         response.raise_for_status()
         return response.json()
