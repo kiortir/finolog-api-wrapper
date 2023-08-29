@@ -16,6 +16,11 @@ from finolog.models.utils import (
 )
 
 
+class ContractorPostArgs(Arguments):
+    class ArgDict(TypedDict):
+        name: str
+
+
 class ItemArgs(Arguments):
     class ArgDict(TypedDict):
         query: NotRequired[str]
@@ -29,11 +34,17 @@ class ContractorManager(BaseManager["Contractor"]):
     async def get_list(
         self, **args: Unpack[ItemArgs.ArgDict]
     ) -> list["Contractor"]:
-        
         orders: list[dict[str, Any]] = await self.api_manager.request(
             "GET", "/contractor", ItemArgs.model_validate(args)
         )
         return [Contractor(_manager=self, **order) for order in orders]
+
+    async def create(self, name):
+        await self.api_manager.request(
+            "POST",
+            "/contractor",
+            ContractorPostArgs.model_validate({"name": name}),
+        )
 
 
 class Contractor(Record["ContractorManager"], BaseModel):
