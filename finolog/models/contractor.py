@@ -23,14 +23,15 @@ class ItemArgs(Arguments):
 
 class ContractorManager(BaseManager["Contractor"]):
     async def get(self, id: int):
-        company = await self.api_manager.request("GET", f"/company/{id}")
+        company = await self.api_manager.request("GET", f"/contractor/{id}")
         return Contractor(_manager=self, **company)
 
     async def get_list(
         self, **args: Unpack[ItemArgs.ArgDict]
     ) -> list["Contractor"]:
+        
         orders: list[dict[str, Any]] = await self.api_manager.request(
-            "GET", "/orders/order", ItemArgs.model_validate(args)
+            "GET", "/contractor", ItemArgs.model_validate(args)
         )
         return [Contractor(_manager=self, **order) for order in orders]
 
