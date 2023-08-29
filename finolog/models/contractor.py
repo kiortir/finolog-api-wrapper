@@ -40,11 +40,12 @@ class ContractorManager(BaseManager["Contractor"]):
         return [Contractor(_manager=self, **order) for order in orders]
 
     async def create(self, name):
-        await self.api_manager.request(
+        c = await self.api_manager.request(
             "POST",
             "/contractor",
             ContractorPostArgs.model_validate({"name": name}),
         )
+        return Contractor(_manager=self, **c)
 
 
 class Contractor(Record["ContractorManager"], BaseModel):
