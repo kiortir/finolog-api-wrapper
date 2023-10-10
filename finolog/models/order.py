@@ -74,7 +74,7 @@ class Order(Record["OrderManager"], BaseModel):
     payment_url: str
     seller: dict[str, Any]
     seller_id: int
-    shipment: int
+    shipment: Decimal | None = None
     shipped_at: None | Datetime = None
     shipped_status: str
     status_id: None | int = None
