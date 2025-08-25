@@ -33,7 +33,7 @@ class BaseManager(Generic[T]):
 ManagerType = TypeVar("ManagerType", bound=BaseManager)
 
 
-class Record(Generic[ManagerType], BaseModel):
+class Record(BaseModel, Generic[ManagerType]):
     """Отвечает за работу с записями"""
 
     id: int
