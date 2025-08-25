@@ -280,7 +280,7 @@ class TransactionManager(BaseManager["Transaction"]):
         return split
 
 
-class Transaction(Record[TransactionManager], BaseModel):
+class Transaction(BaseModel, Record[TransactionManager]):
     id: int
     date: datetime.date
     biz_id: int

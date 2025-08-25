@@ -46,7 +46,7 @@ class OrderManager(BaseManager["Order"]):
         return [Order(_manager=self, **order) for order in orders]
 
 
-class Order(Record["OrderManager"], BaseModel):
+class Order(BaseModel, Record["OrderManager"]):
     id: int
 
     biz_id: int

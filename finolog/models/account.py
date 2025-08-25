@@ -20,7 +20,7 @@ class AccountManager(BaseManager["Account"]):
         return [Account(_manager=self, **account) for account in accounts]
 
 
-class Account(Record[AccountManager], BaseModel):
+class Account(BaseModel, Record[AccountManager]):
     id: int
     bank_account: int | None = None
     bank_bik: str | None = None
