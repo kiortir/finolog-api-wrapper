@@ -58,7 +58,7 @@ class Summary(BaseModel):
 #     return await super().update(**args)
 
 
-class Company(BaseModel, Record["CompanyManager"]):
+class Company(Record["CompanyManager"], BaseModel):
     id: int
     name: str
     full_name: str

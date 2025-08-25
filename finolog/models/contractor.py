@@ -48,6 +48,6 @@ class ContractorManager(BaseManager["Contractor"]):
         return Contractor(_manager=self, **c)
 
 
-class Contractor(BaseModel, Record["ContractorManager"]):
+class Contractor(Record["ContractorManager"], BaseModel):
     id: int
     name: str
