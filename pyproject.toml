@@ -14,7 +14,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pydantic = "==2.0b3"
+pydantic = "^2.0b3"
 httpx = "^0.24.1"
 ujson = "^5.8.0"
 
